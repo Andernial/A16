@@ -1,15 +1,11 @@
 import express from "express";
 import { testConnection } from "./database/connection.js";
-import { CategoryRoute } from "./routes/Category.route.js";
-import { UserRouter } from "./routes/User.route.js";
-import { MessageRouter } from "./routes/Message.route.js";
+import { routers } from "./routes/index.routes.js";
 const app = express();
-const port = 3232;
+const port = 4000;
 
 app.use(express.json());
-app.use(CategoryRoute)
-app.use(UserRouter)
-app.use(MessageRouter)
+app.use(routers)
 
 app.listen(port, ()=> {
     testConnection()
