@@ -23,6 +23,10 @@ export const MessageEntity = database.define("Message", {
     description:{
         type: DataTypes.TEXT(),
         allowNull: false,
+    },
+    favorite:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
 
 

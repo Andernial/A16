@@ -7,6 +7,13 @@ export const createUser = async (req,res) =>{
     await database.sync()
    
     const {name, password, email, relationship} = req.body
+    const userAlreadyExist = await UserEntity.findOne({
+        where: password,email
+    })
+
+    if(userAlreadyExist){
+        return "usuario já existe"
+    }
     const newUser = await UserEntity.create({
         name, password, email, relationship
 
